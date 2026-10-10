@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b28tb72tk8kbf"]
+
+[ext_resource type="Texture2D" uid="uid://dbxm4y0vavpd" path="res://assets/moni.png" id="1_cewn2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi5nm"]
+radius = 21.0
+
+[node name="Predmet" type="Area2D" unique_id=1248611841]
+
+[node name="Slika" type="Sprite2D" parent="." unique_id=1301838985]
+position = Vector2(0, 2)
+scale = Vector2(0.100696355, 0.10818275)
+texture = ExtResource("1_cewn2")
+
+[node name="Oblik" type="CollisionShape2D" parent="." unique_id=395848397]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_bi5nm")

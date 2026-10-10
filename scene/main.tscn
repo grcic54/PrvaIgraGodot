@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://carbj3pcme1dm"]
+
+[ext_resource type="PackedScene" uid="uid://8ny1qvejheff" path="res://scene/igrac.tscn" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://b28tb72tk8kbf" path="res://scene/predmet.tscn" id="2_wp4xf"]
+[ext_resource type="Script" uid="uid://qolbi2ktagnl" path="res://scripts/predmet.gd" id="3_brvut"]
+[ext_resource type="PackedScene" uid="uid://0g4pfpl0gm8a" path="res://scene/prepreka_pod.tscn" id="4_brvut"]
+[ext_resource type="Texture2D" uid="uid://vjfs2f8kto23" path="res://assets/Strelica.png" id="5_0ha60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(1167, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brvut"]
+size = Vector2(5235.5, 20)
+
+[node name="Main" type="Node2D" unique_id=1535429209]
+
+[node name="Igrac" parent="." unique_id=1834061605 groups=["Igrac"] instance=ExtResource("1_itxqv")]
+position = Vector2(98, 600)
+collision_mask = 14
+ubrzanje = 1000.0
+trenje = 2600.0
+
+[node name="Zidovi" type="StaticBody2D" parent="." unique_id=1534823155]
+collision_layer = 2
+collision_mask = 0
+
+[node name="GoreOblik" type="CollisionShape2D" parent="Zidovi" unique_id=747484559]
+position = Vector2(587, -298)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="GoreSlika" type="Polygon2D" parent="Zidovi/GoreOblik" unique_id=1899318890]
+position = Vector2(0, 11)
+scale = Vector2(1, 2.2222223)
+color = Color(0, 0.36239228, 0.073763825, 1)
+polygon = PackedVector2Array(-583.5, -9.45, 407.6101, -9.450012, 583.5, -9.45, 583.5, -0.4499998, -583.5, -0.4499998)
+uv = PackedVector2Array(-583, -12, -132, -11, -132, 46, -588, 48)
+
+[node name="DoljeOblik" type="CollisionShape2D" parent="Zidovi" unique_id=1742910184]
+position = Vector2(2615.25, 646)
+shape = SubResource("RectangleShape2D_brvut")
+
+[node name="DoljeSlika" type="Polygon2D" parent="Zidovi/DoljeOblik" unique_id=1187739893]
+position = Vector2(-351.25018, 397.00006)
+scale = Vector2(5.089974, 43.111107)
+color = Color(0, 0.36078432, 0.07450981, 1)
+polygon = PackedVector2Array(-583.5, -9.45, 583.5, -9.45, 583.5, -0.4499998, -583.5, -0.4499998)
+uv = PackedVector2Array(-583, -12, -132, -11, -132, 46, -588, 48)
+
+[node name="DesnoOblik" type="CollisionShape2D" parent="Zidovi" unique_id=504015631]
+position = Vector2(4253, 111)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="DesnoSlika" type="Polygon2D" parent="Zidovi/DesnoOblik" unique_id=643432745]
+position = Vector2(0, 11)
+scale = Vector2(1, 2.2222223)
+color = Color(0, 0.36078432, 0.07450981, 1)
+polygon = PackedVector2Array(-583.5, -9.45, 583.5, -9.45, 583.5, -0.4499998, -583.5, -0.4499998)
+uv = PackedVector2Array(-583, -12, -132, -11, -132, 46, -588, 48)
+
+[node name="LijevoOblik" type="CollisionShape2D" parent="Zidovi" unique_id=1300003242]
+position = Vector2(-2, 297)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="LijevoSlika" type="Polygon2D" parent="Zidovi/LijevoOblik" unique_id=1918019656]
+position = Vector2(0, 46.34203)
+scale = Vector2(1, 80.760124)
+color = Color(0, 0.36078432, 0.07450981, 1)
+polygon = PackedVector2Array(-583.5, -9.45, 2.1676712, -9.449997, 583.5, -9.45, 583.5, -0.4499998, -583.5, -0.4499998)
+uv = PackedVector2Array(-583, -12, -132, -11, -132, 46, -588, 48)
+
+[node name="Predmet9" parent="." unique_id=237560658 instance=ExtResource("2_wp4xf")]
+position = Vector2(1486, 29)
+collision_layer = 4
+script = ExtResource("3_brvut")
+
+[node name="Predmet10" parent="." unique_id=1248611841 instance=ExtResource("2_wp4xf")]
+position = Vector2(3324, -123)
+collision_layer = 4
+script = ExtResource("3_brvut")
+
+[node name="Predmet11" parent="." unique_id=126815060 instance=ExtResource("2_wp4xf")]
+position = Vector2(1049, -349)
+collision_layer = 4
+script = ExtResource("3_brvut")
+
+[node name="Prepreka" type="StaticBody2D" parent="." unique_id=1411220778 groups=["Predmet"]]
+position = Vector2(2325, -296)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka" unique_id=545795416 groups=["Predmet"]]
+position = Vector2(23.000008, -32.000015)
+scale = Vector2(13.278361, 1.9954394)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.548615, -1.1629486, 26.61325, 22.742035, 10.08078, 36.8266, -5.981262, 23.388123, -0.26882935, 0.7752838)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka" unique_id=371033496 groups=["Predmet"]]
+position = Vector2(-287, -231)
+polygon = PackedVector2Array(230, 246, 445, 272, 663, 245, 558, 197, 435, 175, 305, 201)
+
+[node name="Prepreka2" type="StaticBody2D" parent="." unique_id=555554630 groups=["Predmet"]]
+position = Vector2(575, 422)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka2" unique_id=479201721 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka2" unique_id=337454877 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Prepreka3" type="StaticBody2D" parent="." unique_id=1551229349 groups=["Predmet"]]
+position = Vector2(903, 180)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka3" unique_id=1267350246 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka3" unique_id=1658263224 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Prepreka4" type="StaticBody2D" parent="." unique_id=5214400 groups=["Predmet"]]
+position = Vector2(226, 187)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka4" unique_id=1437233786 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka4" unique_id=1014502724 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Prepreka5" type="StaticBody2D" parent="." unique_id=1623746847 groups=["Predmet"]]
+position = Vector2(1485, 85)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka5" unique_id=1875994041 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka5" unique_id=731647309 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Prepreka6" type="StaticBody2D" parent="." unique_id=1353099572 groups=["Predmet"]]
+position = Vector2(2538, 196)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka6" unique_id=502020052 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka6" unique_id=1632005775 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Prepreka7" type="StaticBody2D" parent="." unique_id=2142017459 groups=["Predmet"]]
+position = Vector2(3325, -69)
+collision_layer = 4
+
+[node name="Oblik" type="CollisionPolygon2D" parent="Prepreka7" unique_id=959773022 groups=["Predmet"]]
+position = Vector2(-30.200012, -16.199982)
+scale = Vector2(2.9759617, 1.547794)
+polygon = PackedVector2Array(9.408722, -12.275543, 18.481415, -0.64608765, 72.31277, 4.0056915, 10.08078, 36.8266, -51.00872, 2.7135315, 0, 0)
+
+[node name="Slika" type="Polygon2D" parent="Prepreka7" unique_id=2114883149 groups=["Predmet"]]
+position = Vector2(-434.2, -219.19998)
+polygon = PackedVector2Array(250.20001, 207.19998, 434, 260, 621.2, 210.19998, 459, 201, 432, 184, 403, 204)
+
+[node name="Strelica" type="Sprite2D" parent="." unique_id=1057143702]
+position = Vector2(1889.0001, 21)
+scale = Vector2(0.1702129, 0.13794328)
+texture = ExtResource("5_0ha60")
+
+[node name="Strelica2" type="Sprite2D" parent="." unique_id=1470569991]
+position = Vector2(2912.0483, 93.953255)
+rotation = -0.60620797
+scale = Vector2(0.11695611, 0.06605881)
+texture = ExtResource("5_0ha60")
+
+[node name="Strelica3" type="Sprite2D" parent="." unique_id=358125276]
+position = Vector2(3052, -163)
+rotation = -2.8860943
+scale = Vector2(0.08405178, 0.07441979)
+texture = ExtResource("5_0ha60")
+
+[node name="Strelica4" type="Sprite2D" parent="." unique_id=897486975]
+position = Vector2(2015, -340)
+rotation = 3.1453412
+scale = Vector2(0.12580483, -0.115008846)
+skew = 0.059598804
+texture = ExtResource("5_0ha60")
+
+[node name="Prepreka_pod" parent="." unique_id=771983252 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(752, 636)
+
+[node name="Prepreka_pod3" parent="." unique_id=1026995960 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(2867, 636)
+
+[node name="Prepreka_pod2" parent="." unique_id=2116586230 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(2445, 636)
+
+[node name="Prepreka_pod4" parent="." unique_id=2061433769 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(2020, 636)
+
+[node name="Prepreka_pod5" parent="." unique_id=734018828 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(1600, 636)
+
+[node name="Prepreka_pod6" parent="." unique_id=423373003 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(1176, 636)
+
+[node name="Prepreka_pod7" parent="." unique_id=423554727 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(3289, 636)
+
+[node name="Prepreka_pod8" parent="." unique_id=1327496931 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(3713, 636)
+
+[node name="Prepreka_pod9" parent="." unique_id=890678383 groups=["Prepreka"] instance=ExtResource("4_brvut")]
+position = Vector2(4136, 636)

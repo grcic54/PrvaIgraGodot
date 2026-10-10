@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://8ny1qvejheff"]
+
+[ext_resource type="Script" uid="uid://c1lwpqeoufgm4" path="res://scripts/igrac.gd" id="1_8leeg"]
+[ext_resource type="Texture2D" uid="uid://0v8v57m6yxa3" path="res://assets/blu.png" id="2_8leeg"]
+[ext_resource type="Texture2D" uid="uid://crip8evxskdgx" path="res://assets/UFO.png" id="3_gk2ev"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgvq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8leeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gk2ev")
+}],
+"loop": 1,
+"name": &"steta",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 30.016663
+
+[node name="Igrac" type="CharacterBody2D" unique_id=1834061605]
+position = Vector2(572, 320)
+collision_mask = 2
+script = ExtResource("1_8leeg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1192290138]
+position = Vector2(2.9999716, 0.99999464)
+scale = Vector2(0.11029422, 0.13063066)
+sprite_frames = SubResource("SpriteFrames_lgvq3")
+animation = &"steta"
+
+[node name="Oblik" type="CollisionShape2D" parent="." unique_id=1366082564 groups=["Igrac"]]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_xrivr")
+debug_color = Color(0.9958455, 0, 0.20618588, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=349534396]
